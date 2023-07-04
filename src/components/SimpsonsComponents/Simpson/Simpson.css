@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: rgba(224, 255, 255, 0.54);
+}
+
+.simpson_container {
+    width: 500px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    background: #b5d9ff;
+    border-radius: 30px;
+    box-shadow: 0 0 5px 5px gray;
+}
+
+.simpson_container h1, .simpson_container h2 {
+    color: #ff5050;
+    text-align: center;
+    font-family: "Times New Roman";
+    letter-spacing: 1px;
+    font-style: italic;
+}

@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: rgba(255, 156, 0, 0.21);
+}
+
+.personality_container {
+    width: 500px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    background: #b5d9ff;
+    border-radius: 30px;
+    box-shadow: 0 0 5px 5px gray;
+}
+
+.personality_container img {
+    border-radius: 20px;
+}
+
+.personality_container h1 {
+    margin: 8px;
+}
+
+.personality_container h1, .personality_container h2 {
+    color: #ff5050;
+    text-align: center;
+    font-family: "Times New Roman";
+    letter-spacing: 1px;
+    font-style: italic;
+}

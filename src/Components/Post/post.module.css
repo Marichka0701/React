@@ -1,0 +1,27 @@
+.post_container {
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 5px gray;
+    background: whitesmoke;
+    padding: 10px;
+}
+
+.btn {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    background: rgba(255, 145, 0, 0.62);
+    transition: 0.5s;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    transform: scale(0.9);
+    transition: 0.5s;
+}

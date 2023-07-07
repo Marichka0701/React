@@ -1,0 +1,13 @@
+.ship_container {
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 5px gray;
+    background: whitesmoke;
+    padding: 10px;
+}

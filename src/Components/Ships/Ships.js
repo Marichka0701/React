@@ -18,7 +18,7 @@ const Ships = () => {
     return (
         <div className={styles.wrapper}>
             {
-                allShips.map(ship => <Ship ship={ship} />)
+                allShips.map(ship => <Ship key={ship.flight_number} ship={ship} />)
             }
         </div>
     );

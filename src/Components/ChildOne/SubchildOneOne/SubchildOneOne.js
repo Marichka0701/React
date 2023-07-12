@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import {UserContext} from "../../../App";
 
 const SubchildOneOne = () => {
+    const { user, setUser } = useContext(UserContext);
+
     return (
-        <div>
-            It is <b>Subchild_1_1</b>
-        </div>
-    );
+        <>
+        {
+            user && <div> {user?.name} - {user?.username} </div>
+        }
+        </>
+)
+    ;
 };
 
 export default SubchildOneOne;

@@ -36,9 +36,9 @@ const Form = () => {
         // у мене не було інших варіантів.
         // цей варіант гуд?
 
-        brandRef.current.value ='';
-        priceRef.current.value ='';
-        yearRef.current.value ='';
+        // brandRef.current.value ='';
+        // priceRef.current.value ='';
+        // yearRef.current.value ='';
     }
 
     const handleClickDelete = (e) => {

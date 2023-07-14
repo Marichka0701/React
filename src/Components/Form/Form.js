@@ -90,24 +90,6 @@ const Form = () => {
                         </div>
                     </form>
                 </div>
-
-                {/*тут б'є помилку, але машинку видаляє*/}
-                <div className={styles.deleteCar}>
-                    <h2>DELETE A CAR</h2>
-                    <form action='#'>
-                        <label>
-                            Id:
-                            <input type="number" required ref={idRef} />
-                        </label>
-
-                        <button
-                            className={styles.btn}
-                            type="submit"
-                            onClick={handleClickDelete}
-                        >Delete a car
-                        </button>
-                    </form>
-                </div>
             </div>
         </>
     );

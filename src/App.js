@@ -1,10 +1,10 @@
 import './App.css';
-import UserForm from "./Components/UserForm/UserForm";
+import CommentForm from "./Components/CommentForm/CommentForm";
 
 function App() {
   return (
     <div className="App">
-        <UserForm />
+        <CommentForm />
     </div>
   );
 }

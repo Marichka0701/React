@@ -3,10 +3,10 @@ import {useForm} from "react-hook-form";
 import {joiResolver} from '@hookform/resolvers/joi';
 import Joi from 'joi';
 
-import styles from './UserForm.module.css'
-import {usersService} from "../../services/axios.users.service";
+import styles from './CommentForm.module.css'
+import {commentsService} from "../../services/axios.comments.service";
 
-const UserForm = () => {
+const CommentForm = () => {
     // перевірка на валідність
     const schema = Joi.object({
         name: Joi.string()
@@ -14,17 +14,17 @@ const UserForm = () => {
             .messages({
                 "string.empty": 'Поле \'name\' є обов\'язковим',
             }),
-        username: Joi.string()
-            .required()
-            .messages({
-                "string.empty": 'Поле \'username\' є обов\'язковим',
-            }),
         email: Joi.string()
             .required()
             .pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
             .messages({
                 "string.empty": 'Поле \'email\' є обов\'язковим',
                 "string.pattern.base": 'Введіть валідний email'
+            }),
+        body: Joi.string()
+            .required()
+            .messages({
+                "string.empty": 'Поле \'body\' є обов\'язковим',
             }),
 
     })
@@ -39,15 +39,15 @@ const UserForm = () => {
         mode: 'all'
     });
 
-
     const onSubmit = (data) => {
-        usersService.create(data);
+        commentsService.create({...data, postId: 1});
         reset();
     }
 
+
     return (
         <div className={styles.wrapper}>
-            <h2>ADD A NEW USER</h2>
+            <h2>ADD A NEW COMMENT</h2>
             <form action='#' onSubmit={handleSubmit(onSubmit)}>
 
                 <div className={styles.errorContainer}>
@@ -60,29 +60,29 @@ const UserForm = () => {
 
                 <div className={styles.errorContainer}>
                     <label>
-                        Username:
-                        <input type="text" {...register('username')} />
-                    </label>
-                    {errors.username && <span className={styles.error}> {errors.username.message} </span>}
-                </div>
-
-                <div className={styles.errorContainer}>
-                    <label>
                         Email:
-                        <input type="email" {...register('email')} />
+                        <input type="text" {...register('email')}  />
                     </label>
                     {errors.email && <span className={styles.error}> {errors.email.message} </span>}
                 </div>
 
+                <div className={styles.errorContainer}>
+                    <label>
+                    Body:
+                    <input type="text" {...register('body')} />
+                </label>
+                    {errors.body && <span className={styles.error}> {errors.body.message} </span>}
+                </div>
+
                 <button
-                    className={styles.addUser}
+                    className={styles.addComment}
                     type="submit"
                     disabled={!isValid}
-                >Add new user
+                >Add a new comment
                 </button>
             </form>
         </div>
     );
 };
 
-export default UserForm;
+export default CommentForm;

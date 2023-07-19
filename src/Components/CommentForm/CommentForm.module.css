@@ -60,7 +60,7 @@ input {
     color: red;
 }
 
-.addUser {
+.addComment {
     width: 150px;
     height: 30px;
     background: coral;
@@ -73,7 +73,7 @@ input {
     font-weight: inherit;
 }
 
-.addUser:disabled {
+.addComment:disabled {
     background: rgba(255, 127, 80, 0.5);
 }
 

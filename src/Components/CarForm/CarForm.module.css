@@ -58,6 +58,17 @@ input {
     color: rgba(41, 41, 41, 0.86);
 }
 
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.error {
+    text-align: left;
+    color: red;
+}
+
 .buttons {
     display: flex;
     justify-content: space-between;

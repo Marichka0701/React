@@ -10,24 +10,33 @@ import styles from './Cars.module.css'
 const Cars = () => {
     const [cars, setCars] = useState([]);
     const [carForUpdate, setCarForUpdate] = useState(null);
-    const [triggerForUpdate, setTriggerForUpdate] = useState([]);
+    const [triggerForRender, setTriggerForRender] = useState(false);
 
-    useEffect(()=> {
-        carsService.getAll()
-            .then(value => value.data)
-            .then(data => setCars(data))
-    }, [triggerForUpdate])
+    useEffect(() => {
+        const getCars = async () => {
+            try {
+                await carsService.getAll()
+                    .then(value => setCars(value.data));
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        getCars();
+    }, [triggerForRender])
 
     return (
         <>
-            <CarForm setTriggerForUpdate={setTriggerForUpdate} carForUpdate={carForUpdate} />
+            <CarForm
+                setTriggerForRender={setTriggerForRender}
+                carForUpdate={carForUpdate}
+            />
             <div className={styles.cars}>
                 {
                     cars.map(car => <Car
                         key={car.id}
                         car={car}
                         setCarForUpdate={setCarForUpdate}
-                        setTriggerForUpdate={setTriggerForUpdate}
+                        setTriggerForRender={setTriggerForRender}
                     />)
                 }
             </div>

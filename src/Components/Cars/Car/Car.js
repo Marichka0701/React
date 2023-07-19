@@ -3,16 +3,19 @@ import React from 'react';
 import styles from './Car.module.css'
 import {carsService} from "../../../services/axios.cars.service";
 
-const Car = ({car, setCarForUpdate, setTriggerForUpdate}) => {
+const Car = ({car, setCarForUpdate, setTriggerForRender}) => {
     const { id, brand, price, year } = car;
 
-    const handleDeleteClick = () => {
-        carsService.delete(id);
-        // setTriggerForUpdate(prev => !prev);
+    const handleDeleteClick = async () => {
+        try {
+            await carsService.delete(id);
+            setTriggerForRender(prev => !prev);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     };
 
     const handleUpdateClick = () => {
-        // carsService.updateById(id)
         setCarForUpdate(car);
     };
 

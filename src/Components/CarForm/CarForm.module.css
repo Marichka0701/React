@@ -93,3 +93,7 @@ input {
     transform: scale(0.9);
     transition: 0.8s;
 }
+
+.btn:disabled {
+    background: rgba(255, 127, 80, 0.5);
+}

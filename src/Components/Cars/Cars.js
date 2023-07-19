@@ -12,7 +12,7 @@ const Cars = () => {
         carsService.getAll()
             .then(value => value.data)
             .then(data => setCars(data))
-    }, [cars])
+    }, [])
 
     return (
         <div className={styles.cars}>

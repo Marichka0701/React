@@ -20,24 +20,20 @@ const CarForm = ({carForUpdate, setTriggerForRender}) => {
 
     useEffect(() => {
         if (carForUpdate) {
-            handleUpdate();
+            setValue('brand', carForUpdate?.brand, {shouldValidate: true});
+            setValue('price', carForUpdate?.price, {shouldValidate: true});
+            setValue('year', carForUpdate?.year, {shouldValidate: true});
         }
     }, [carForUpdate])
 
     const handleUpdate = async (data) => {
-        setValue('brand', carForUpdate?.brand, {shouldValidate: true});
-        setValue('price', carForUpdate?.price, {shouldValidate: true});
-        setValue('year', carForUpdate?.year, {shouldValidate: true});
-        await data;
-        console.log(data)
-
-        // const { id, ...car } = await data;
-        // console.log(id, car)
-        carsService.updateById(data.id, {
+        await carsService.updateById(carForUpdate.id, {
             brand: data.brand,
             price: data.price,
             year: data.year,
         });
+        setTriggerForRender(prev => !prev)
+        reset();
     }
 
     return (

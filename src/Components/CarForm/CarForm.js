@@ -38,7 +38,6 @@ const CarForm = ({carForUpdate, setTriggerForRender}) => {
             price: data.price,
             year: data.year,
         });
-        console.log('спрацьовує ф-ія оновлення машини')
     }
 
     return (

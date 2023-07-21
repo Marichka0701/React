@@ -1,0 +1,17 @@
+.todo {
+    background: lightgoldenrodyellow;
+    box-sizing: border-box;
+    width: 350px;
+    height: 130px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid #282c34;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.todo_block {
+    text-align: left;
+}

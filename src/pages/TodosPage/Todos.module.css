@@ -1,0 +1,17 @@
+.container {
+    box-sizing: border-box;
+    background: burlywood;
+    padding: 30px;
+}
+
+.title {
+    text-align: center;
+}
+
+.todos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}

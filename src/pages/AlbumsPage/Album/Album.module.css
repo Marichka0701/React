@@ -1,0 +1,17 @@
+.album {
+    background: rgba(255, 182, 193, 0.9);
+    box-sizing: border-box;
+    width: 350px;
+    height: 130px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid #282c34;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.album_block {
+    text-align: left;
+}

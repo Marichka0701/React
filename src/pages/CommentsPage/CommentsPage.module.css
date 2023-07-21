@@ -1,0 +1,17 @@
+.container {
+    box-sizing: border-box;
+    background: lightblue;
+    padding: 30px;
+}
+
+.title {
+    text-align: center;
+}
+
+.comments {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}

@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+react homeworks
+1. загальний синтаксис компонент
+2. хуки useState та пропси
+3. property drill, state lifting, context
+4. звичайні форми. постові запити і тд
+5. axios
+6. класові компоненти
+7. 
+8. routing

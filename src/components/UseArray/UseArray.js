@@ -13,8 +13,8 @@ const UseArray = () => {
 
             <div>
                 {arrayValue.map((item, index) => {
-                    return <div>
-                        <h3 key={item}>{item}</h3>
+                    return <div key={item}>
+                        <h3>{item}</h3>
                         <button
                             onClick={() => remove(index)}
                             style={{width: 100, height: 40, background: "blue", marginTop: 10}}

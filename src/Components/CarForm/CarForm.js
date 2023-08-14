@@ -3,19 +3,29 @@ import {useForm} from "react-hook-form";
 import {joiResolver} from '@hookform/resolvers/joi';
 
 import {carValidator} from "../../validators/car.validator";
-import {carsService} from "../../services/axios.cars.service";
 import styles from './CarForm.module.css'
+import {useDispatch, useSelector} from "react-redux";
+import {carThunks} from "../../redux/actions/carsActions";
 
-const CarForm = ({carForUpdate, setTriggerForRender}) => {
-    const {register, handleSubmit, formState: {errors, isValid}, reset, setValue} = useForm({
+const CarForm = ({setTriggerForRender}) => {
+    const {
+        register,
+        handleSubmit,
+        formState: {errors, isValid},
+        reset,
+        setValue
+    } = useForm({
         resolver: joiResolver(carValidator),
         mode: 'all',
     });
 
+    const carForUpdate = useSelector((store) => store.carsReducer.carForUpdate);
+    const dispatch = useDispatch();
+
     const onSubmit = (data) => {
-        setTriggerForRender(prev => !prev)
-        carsService.create(data);
+        dispatch(carThunks.create(data));
         reset();
+        setTriggerForRender(prev => !prev)
     }
 
     useEffect(() => {
@@ -27,13 +37,13 @@ const CarForm = ({carForUpdate, setTriggerForRender}) => {
     }, [carForUpdate])
 
     const handleUpdate = async (data) => {
-        await carsService.updateById(carForUpdate.id, {
+        dispatch(carThunks.update(carForUpdate.id, {
             brand: data.brand,
             price: data.price,
             year: data.year,
-        });
-        setTriggerForRender(prev => !prev)
+        }))
         reset();
+        setTriggerForRender(prev => !prev)
     }
 
     return (

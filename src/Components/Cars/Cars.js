@@ -1,41 +1,41 @@
 import React, {useEffect, useState} from 'react';
-import {carsService} from "../../services/axios.cars.service";
+import {useDispatch, useSelector} from "react-redux";
 
 import Car from "./Car/Car";
 import CarForm from "../CarForm/CarForm";
 
 import styles from './Cars.module.css'
+import {carThunks} from "../../redux/actions/carsActions";
 
 /* машинки з'являються знизу, бо там стилі 100vh 100vw */
 const Cars = () => {
-    const [cars, setCars] = useState([]);
-    const [carForUpdate, setCarForUpdate] = useState(null);
     const [triggerForRender, setTriggerForRender] = useState(false);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getCars = async () => {
             try {
-                await carsService.getAll()
-                    .then(value => setCars(value.data));
+                dispatch(carThunks.get());
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         }
         getCars();
-    }, [triggerForRender])
+    }, [triggerForRender]);
+
+    const cars = useSelector((store) => store.carsReducer.cars);
 
     return (
         <>
             <CarForm
                 setTriggerForRender={setTriggerForRender}
-                carForUpdate={carForUpdate}
             />
             <div className={styles.cars}>
                 {
                     cars.map(car => <Car
                         key={car.id}
                         car={car}
-                        setCarForUpdate={setCarForUpdate}
                         setTriggerForRender={setTriggerForRender}
                     />)
                 }

@@ -1,32 +1,34 @@
 import React from 'react';
 
 import styles from './Car.module.css'
-import {carsService} from "../../../services/axios.cars.service";
+import {useDispatch} from "react-redux";
+import {carsActions, carThunks} from "../../../redux/actions/carsActions";
 
-const Car = ({car, setCarForUpdate, setTriggerForRender}) => {
-    const { id, brand, price, year } = car;
+const Car = ({car, setTriggerForRender}) => {
+    const {id, brand, price, year} = car;
 
     const handleDeleteClick = async () => {
         try {
-            await carsService.delete(id);
+            dispatch(carThunks.delete(id));
             setTriggerForRender(prev => !prev);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
 
+    const dispatch = useDispatch();
     const handleUpdateClick = () => {
-        setCarForUpdate(car);
+        dispatch(carsActions.SET_CAR_FOR_UPDATE(car));
     };
 
     return (
         <div className={styles.car}>
-            <div> <b>ID: </b> {id} </div>
-            <div> <b>BRAND: </b> {brand} </div>
-            <div> <b>PRICE: </b> {price} </div>
-            <div> <b>YEAR: </b> {year} </div>
-            <button className={styles.deleteCar} onClick={handleDeleteClick} > Delete </button>
-            <button className={styles.deleteCar} onClick={handleUpdateClick} > Update </button>
+            <div><b>ID: </b> {id} </div>
+            <div><b>BRAND: </b> {brand} </div>
+            <div><b>PRICE: </b> {price} </div>
+            <div><b>YEAR: </b> {year} </div>
+            <button className={styles.deleteCar} onClick={handleDeleteClick}> Delete</button>
+            <button className={styles.deleteCar} onClick={handleUpdateClick}> Update</button>
         </div>
     );
 };

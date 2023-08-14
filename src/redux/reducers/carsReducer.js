@@ -14,7 +14,15 @@ export const carsReducer = (state = initialState, action) => {
         case carActionTypes.UPDATE:
             return {
                 ...state,
-                cars: state.cars.map((car) => car.id === action.payload.id ? car = action.payload.car : car),
+                cars: state.cars.map((car) => car.id === action.payload.id ?
+                    {
+                        ...car,
+                        ...action.payload.car
+                        // brand: action.payload.car.brand,
+                        // price: action.payload.car.price,
+                        // year: action.payload.car.year
+                    }
+                    : car),
             }
         case carActionTypes.DELETE:
             return {
@@ -31,6 +39,7 @@ export const carsReducer = (state = initialState, action) => {
                 ...state,
                 carForUpdate: action.payload,
             }
-        default: return state;
+        default:
+            return state;
     }
 };

@@ -7,7 +7,7 @@ import styles from './CarForm.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {carThunks} from "../../redux/actions/carsActions";
 
-const CarForm = ({setTriggerForRender}) => {
+const CarForm = () => {
     const {
         register,
         handleSubmit,
@@ -25,7 +25,6 @@ const CarForm = ({setTriggerForRender}) => {
     const onSubmit = (data) => {
         dispatch(carThunks.create(data));
         reset();
-        setTriggerForRender(prev => !prev)
     }
 
     useEffect(() => {
@@ -43,7 +42,6 @@ const CarForm = ({setTriggerForRender}) => {
             year: data.year,
         }))
         reset();
-        setTriggerForRender(prev => !prev)
     }
 
     return (

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import Car from "./Car/Car";
@@ -9,8 +9,6 @@ import {carThunks} from "../../redux/actions/carsActions";
 
 /* машинки з'являються знизу, бо там стилі 100vh 100vw */
 const Cars = () => {
-    const [triggerForRender, setTriggerForRender] = useState(false);
-
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -22,21 +20,18 @@ const Cars = () => {
             }
         }
         getCars();
-    }, [triggerForRender]);
+    }, []);
 
     const cars = useSelector((store) => store.carsReducer.cars);
 
     return (
         <>
-            <CarForm
-                setTriggerForRender={setTriggerForRender}
-            />
+            <CarForm />
             <div className={styles.cars}>
                 {
                     cars.map(car => <Car
                         key={car.id}
                         car={car}
-                        setTriggerForRender={setTriggerForRender}
                     />)
                 }
             </div>

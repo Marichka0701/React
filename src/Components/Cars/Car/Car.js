@@ -4,13 +4,12 @@ import styles from './Car.module.css'
 import {useDispatch} from "react-redux";
 import {carsActions, carThunks} from "../../../redux/actions/carsActions";
 
-const Car = ({car, setTriggerForRender}) => {
+const Car = ({car}) => {
     const {id, brand, price, year} = car;
 
     const handleDeleteClick = async () => {
         try {
             dispatch(carThunks.delete(id));
-            setTriggerForRender(prev => !prev);
         } catch (error) {
             console.error('Error fetching data:', error);
         }

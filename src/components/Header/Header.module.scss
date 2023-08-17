@@ -1,0 +1,13 @@
+@import "src/utils/reset";
+
+.header {
+  height: 70px;
+  background: lightpink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 36px;
+  font-weight: 700;
+  color: #282c34;
+}

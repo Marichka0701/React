@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 
 const MainLayout = () => {
     return (
-        <div style={{background: "lightgray"}}>
+        <div style={{background: "lightgray", minHeight: '100vh',width: '100%', height: '100%'}}>
             <Header/>
             <Outlet/>
         </div>

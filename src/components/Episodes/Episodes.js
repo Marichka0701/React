@@ -2,13 +2,12 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 
 import {RMActions, setCurrentPage} from "../../redux/slices/RM.slice";
-import Episode from "../Episode/Episode";
+import Episode from "./Episode/Episode";
 import styles from './Episodes.module.scss';
 import Pagination from "../Pagination/Pagination";
 
 const Episodes = () => {
     const dispatch = useDispatch();
-
     const episodes = useSelector((state) => state.RM.episodes);
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './RickAndMorty.scss';
+import styles from './RickAndMorty.module.scss';
 
 const RickAndMorty = () => {
     return (

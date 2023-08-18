@@ -1,0 +1,19 @@
+@import "src/utils/reset";
+
+.characters_wrapper {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+
+  &>Button {
+    align-self: flex-start;
+  }
+
+  .characters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+}
